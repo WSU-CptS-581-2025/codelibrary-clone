@@ -244,74 +244,165 @@ public class Sort {
             int n = rnd.nextInt(10) + 1;
             int[] a = rnd.ints(n, 0, 1000).toArray();
             int[] s = a.clone();
+            long start = System.currentTimeMillis();
             Arrays.sort(s);
+            long total = System.currentTimeMillis()-start;
+            if (step == 0) {
+            	System.out.print("default sort time: ");
+            	System.out.println(total);
+            	System.out.println(Arrays.toString(s));
+            }
 
             int[] b = a.clone();
+            start = System.currentTimeMillis();
             bubbleSort(b);
             if (!Arrays.equals(s, b))
                 throw new RuntimeException();
-
+            total = System.currentTimeMillis()-start;
+            if (step == 1) {
+            	System.out.print("bubble sort time: ");
+            	System.out.println(total);
+            	System.out.println(Arrays.toString(b));
+            }
+            
             b = a.clone();
+            start = System.currentTimeMillis();
             selectionSort(b);
             if (!Arrays.equals(s, b))
                 throw new RuntimeException();
+            total = System.currentTimeMillis()-start;
+            if (step == 2) {
+            	System.out.print("selection sort time: ");
+            	System.out.println(total);
+            	System.out.println(Arrays.toString(b));
+            }
 
             b = a.clone();
+            start = System.currentTimeMillis();
             insertionSort(b);
             if (!Arrays.equals(s, b))
                 throw new RuntimeException();
+            total = System.currentTimeMillis()-start;
+            if (step == 3) {
+            	System.out.print("insertion sort time: ");
+            	System.out.println(total);
+            	System.out.println(Arrays.toString(b));
+            }
 
             b = a.clone();
+            start = System.currentTimeMillis();
             strangeSort(b);
             if (!Arrays.equals(s, b))
                 throw new RuntimeException();
+            total = System.currentTimeMillis()-start;
+            if (step == 4) {
+            	System.out.print("strange sort time: ");
+            	System.out.println(total);
+            	System.out.println(Arrays.toString(b));
+            }
 
             b = a.clone();
+            start = System.currentTimeMillis();
             countingSort(b);
             if (!Arrays.equals(s, b))
                 throw new RuntimeException();
+            total = System.currentTimeMillis()-start;
+            if (step == 5) {
+            	System.out.print("counting sort time: ");
+            	System.out.println(total);
+            	System.out.println(Arrays.toString(b));
+            }
 
             b = a.clone();
+            start = System.currentTimeMillis();
             qSort(b, 0, b.length - 1);
             if (!Arrays.equals(s, b))
                 throw new RuntimeException();
+            total = System.currentTimeMillis()-start;
+            if (step == 6) {
+            	System.out.print("quick sort time: ");
+            	System.out.println(total);
+            	System.out.println(Arrays.toString(b));
+            }
         }
 
         for (int step = 0; step < 10; step++) {
             int n = rnd.nextInt(50_000) + 100_000;
             int[] a = step == 0 ? new int[n] : rnd.ints(n).toArray();
             int[] s = a.clone();
+            long start = System.currentTimeMillis();
             Arrays.sort(s);
+            long total = System.currentTimeMillis()-start;
+            if (step == 0) {
+            	System.out.print("default sort time: ");
+            	System.out.println(total);
+            }
 
             int[] b = a.clone();
+            start = System.currentTimeMillis();
             qSort(b, 0, b.length - 1);
             if (!Arrays.equals(s, b))
                 throw new RuntimeException();
+            total = System.currentTimeMillis()-start;
+            if (step == 0) {
+            	System.out.print("quick sort time: ");
+            	System.out.println(total);
+            }
 
             b = a.clone();
+            start = System.currentTimeMillis();
             mergeSort(b, 0, b.length);
             if (!Arrays.equals(s, b))
                 throw new RuntimeException();
+            total = System.currentTimeMillis()-start;
+            if (step == 0) {
+            	System.out.print("merge sort time: ");
+            	System.out.println(total);
+            }
 
             b = a.clone();
+            start = System.currentTimeMillis();
             mergeSort2(b, 0, b.length);
             if (!Arrays.equals(s, b))
                 throw new RuntimeException();
+            total = System.currentTimeMillis()-start;
+            if (step == 0) {
+            	System.out.print("alternative merge sort time: ");
+            	System.out.println(total);
+            }
 
             b = a.clone();
+            start = System.currentTimeMillis();
             inPlaceMergeSort(b, 0, b.length);
             if (!Arrays.equals(s, b))
                 throw new RuntimeException();
+            total = System.currentTimeMillis()-start;
+            if (step == 0) {
+            	System.out.print("in-place merge sort time: ");
+            	System.out.println(total);
+            }
 
             b = a.clone();
+            start = System.currentTimeMillis();
             heapSort(b);
             if (!Arrays.equals(s, b))
                 throw new RuntimeException();
+            total = System.currentTimeMillis()-start;
+            if (step == 0) {
+            	System.out.print("heap sort time: ");
+            	System.out.println(total);
+            }
 
             b = a.clone();
+            start = System.currentTimeMillis();
             radixSort(b);
             if (!Arrays.equals(s, b))
                 throw new RuntimeException();
+            total = System.currentTimeMillis()-start;
+            if (step == 0) {
+            	System.out.print("radix sort time: ");
+            	System.out.println(total);
+            }
         }
     }
 }
